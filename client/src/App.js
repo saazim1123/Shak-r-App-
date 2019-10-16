@@ -1,0 +1,76 @@
+import React, { Component } from 'react';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+import './App.css';
+
+import MyBarPage from './containers/MyBarPage'
+import DrinkShow from './containers/DrinkShow'
+import DrinkRandom from './containers/DrinkRandom'
+import DrinksIndex from './containers/DrinksIndex'
+import Landing from './containers/Landing'
+import Login from './containers/Login'
+import SignUp from './containers/SignUp'
+
+import { Navbar } from './components/Navbar'
+
+import {getProfileFetch} from './actions/loggedin';
+import {logoutUser} from './actions/logout'
+
+class App extends Component {
+
+componentDidMount = () => {
+    this.props.getProfileFetch
+}
+
+handleClick = event => {
+  event.preventDefault()
+  // Remove the token from localStorage
+  localStorage.removeItem("token")
+  // Remove the user object from the Redux store
+  this.props.logoutUser()
+}
+
+
+
+  render() {
+    return (
+      <Router>
+        <div>
+          {this.props.site.navbar ? <Navbar /> : null}
+          <div className={this.props.site.myBar ? "" : "container"}>
+            <div className="col s-12">
+            <Switch>
+              <Route exact path ="/" component={Landing} />
+              <Route exact path ="/login" component={Login} />
+              <Route exact path ="/signup" component={SignUp} />
+              <Route exact path ='/mybar' component={MyBarPage} />
+              <Route exact path="/drinks" component={DrinksIndex} />
+              <Route exact path="/drinks/random" component={DrinkRandom} />
+              <Route exact path='/drinks/:id' component={DrinkShow} />
+            </Switch>  
+             
+            </div>
+          </div>
+        </div>
+      </Router>
+    );
+  }
+}
+
+const mapStateToProps = (state) => {
+  return {
+    site: state.site,
+    
+  }
+  
+  
+}
+
+const mapDispatchToProps = dispatch => ({
+  
+  logoutUser: () => dispatch(logoutUser())
+})
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)
