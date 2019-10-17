@@ -45,6 +45,22 @@ export function loadDrinks(query) {
   };
 }
 
+export function getItems() {
+  return (dispatch, store) => {
+    const token = localStorage.getItem('token');
+    let url = 'http://localhost:3001/items';
+    return fetch(url, {
+      headers: {
+        'Authorization': `bearer ${token}`
+      },
+      accept: 'application/json',
+    }).then(response => response.json())
+      .then(items => dispatch({ type: 'LOAD_ALL_ITEMS', payload: items }));
+  };
+}
+
+export function searchDrinks(query) {}
+
 
 export function loadMyBar(barEssentials, missingEssentials){
   return (dispatch) => {
@@ -100,4 +116,8 @@ export function unloadDrinks() {
   return (dispatch) => {
     dispatch({ type: 'LOAD_ALL_DRINKS', payload: [] });
   };
+}
+
+export function searchTerm(searchTerm) {
+  return {type: 'SEARCH_TERM', payload: searchTerm}
 }

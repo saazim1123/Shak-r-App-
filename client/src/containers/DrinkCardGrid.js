@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import { DrinkTextCard } from '../components/DrinkTextCard'
 import { DrinkImageCard } from '../components/DrinkImageCard'
 
@@ -29,7 +29,14 @@ class DrinkCardGrid extends React.Component {
     }
     return (
       <div className="col s12">
-        {drinkTextCards}
+        {
+          this.props.drinks &&
+          <Fragment>
+            {drinkTextCards}
+          </Fragment>
+          ||
+          <h4>No Drinks Found. Please search by Ingredients</h4>
+        }
       </div>
     )
   }

@@ -6,10 +6,13 @@ import DrinkCardGrid from '../containers/DrinkCardGrid'
 import { loadDrinks } from '../actions/drinks'
 import { unloadDrinks } from '../actions/drinks'
 
+
 class DrinksIndex extends React.Component {
 
+
+
   componentDidMount(){
-    this.props.loadDrinks() 
+    this.props.loadDrinks()
   }
 
   componentWillUnmount(){
@@ -38,7 +41,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     loadDrinks: loadDrinks,
-    unloadDrinks: unloadDrinks
+    unloadDrinks: unloadDrinks,
+    
   }, dispatch);
 };
 

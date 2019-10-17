@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 
@@ -14,13 +14,13 @@ import SignUp from './containers/SignUp'
 
 import { Navbar } from './components/Navbar'
 
-import {getProfileFetch} from './actions/loggedin';
+import getProfileFetch from './actions/loggedin';
 import {logoutUser} from './actions/logout'
 
 class App extends Component {
 
-componentDidMount = () => {
-    this.props.getProfileFetch
+componentDidMount() {
+  getProfileFetch()
 }
 
 handleClick = event => {
@@ -58,14 +58,9 @@ handleClick = event => {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {
+const mapStateToProps = (state) => ({
     site: state.site,
-    
-  }
-  
-  
-}
+})
 
 const mapDispatchToProps = dispatch => ({
   

@@ -13,6 +13,10 @@ export const Navbar = () => {
           <li><Link to="/drinks/random" exact="true">Random Cocktails</Link></li>
           <li><button onClick={()=>{localStorage.clear(); window.location.href="/";}}>Logout</button></li>
         </ul>
+        <ul id="nav-mobile" className="right hide-on-med-and-down">
+          <li><Link to="/drinks" exact="true">Saved Cocktails</Link></li>
+          <li><Link to="/drinks" exact="true">Add a Cocktail</Link></li>
+        </ul>
       </div>
     </nav>
   )
