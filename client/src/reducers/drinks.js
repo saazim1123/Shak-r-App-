@@ -11,6 +11,8 @@ export default function drinks(state = {
       return Object.assign({}, state, {loading: true})
     case "LOAD_DRINK":
       return Object.assign({}, state, {drink: action.payload, loading: false})
+    case "LOAD_LIKED_DRINKS":
+      return Object.assign({}, state, {liked_drinks: action.payload, loading: false})
     case "LOAD_ALL_DRINKS":
       return Object.assign({}, state, { drinks: action.payload, loading: false })
     case "LOAD_ALL_ITEMS":

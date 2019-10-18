@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { Drink } from '../components/Drink'
+import Drink  from '../components/Drink'
 import { loadRandomDrink } from '../actions/drinks'
 import { unloadDrink } from '../actions/drinks'
 

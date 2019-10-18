@@ -6,6 +6,8 @@ Rails.application.routes.draw do
       post '/login', to: 'auth#create'
       post '/signup', to: 'users#create'
       get '/profile', to: 'users#profile'
+      post '/toggle-like/:recipe_id', to: 'users#toggle_likes'
+      get '/likes', to: 'users#likes'
     end
   end
   resources :recipes, :items

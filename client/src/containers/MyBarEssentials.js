@@ -101,7 +101,7 @@ class MyBarEssentials extends React.Component {
               onClick={()=>{
                 if (this.state.selected_ingredients) {
                   this.props.toggle_drinks_request_made();
-                  this.props.loadDrinks(this.state.selected_ingredients.map((obj)=> obj.label).join(','))
+                  this.props.loadDrinks(this.state.selected_ingredients.map((obj)=> obj.value).join(','))
                 }
               }}>
               What can I make?

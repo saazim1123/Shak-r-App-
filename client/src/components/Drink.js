@@ -1,6 +1,8 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import {toggleLikeDrink} from '../actions/drinks'
 
-export const Drink = (props) => {
+const Drink = (props) => {
   const ingredients = props.drink.ingredients.map((ingredient, i) => {
     return <li key={i}>{ingredient.quantity} {ingredient.item.name}</li>
   })
@@ -20,7 +22,14 @@ export const Drink = (props) => {
           <strong>Instructions:</strong>
           <p>{props.drink.instructions}</p>
         </div>
+        <button onClick={props.toggleLikeDrink.bind(this, props.drink.id)}>Like</button>
       </div>
     </div>
   )
 }
+
+const mapDispatchToProps = dispatch => ({
+  toggleLikeDrink: (id)=>dispatch(toggleLikeDrink(id))
+})
+
+export default connect(null, mapDispatchToProps)(Drink);
