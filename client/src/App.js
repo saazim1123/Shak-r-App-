@@ -12,11 +12,12 @@ import Landing from './containers/Landing'
 import Login from './containers/Login'
 import SignUp from './containers/SignUp'
 import DrinkLikes from './components/DrinkLikes'
-
-import { Navbar } from './components/Navbar'
+// import 'bootstrap/dist/css/bootstrap.min.css';
+import { Navigationbar } from './components/Navbar'
 
 import getProfileFetch from './actions/loggedin';
 import {logoutUser} from './actions/logout'
+
 
 class App extends Component {
 
@@ -38,7 +39,7 @@ handleClick = event => {
     return (
       <Router>
         <div>
-          {this.props.site.navbar ? <Navbar /> : null}
+          {this.props.site.navbar ? <Navigationbar /> : null}
           <div className={this.props.site.myBar ? "" : "container"}>
             <div className="col s-12">
             <Switch>

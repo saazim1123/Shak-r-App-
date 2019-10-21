@@ -9,6 +9,7 @@ import { MyBarSelector } from '../components/MyBarSelector'
 
 
 
+
 class MyBarEssentials extends React.Component {
 
   constructor(props){
@@ -97,7 +98,8 @@ class MyBarEssentials extends React.Component {
             values={this.state.selected_ingredients}
           />   
 
-            <button
+
+          <button
               onClick={()=>{
                 if (this.state.selected_ingredients) {
                   this.props.toggle_drinks_request_made();
@@ -105,16 +107,10 @@ class MyBarEssentials extends React.Component {
                 }
               }}>
               What can I make?
-            </button>
+          </button>
          
 
-        {/* "Lemon acid meth"
-
-        searchTerm.split(' ') =>
-        [1, 2, 3, 4, 5]
-        searchTerm1: array[0]
-           */}
-
+       
           
              
           

@@ -22,6 +22,14 @@
   font-size: large;
 }
 
+.dropdown-menu.default.react-selectize.multi-select .option-wrapper span {
+  opacity: 1;
+  display: block;
+  color: black!important
+}
+
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
