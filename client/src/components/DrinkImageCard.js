@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { Image } from 'react-bootstrap';
 
 export const DrinkImageCard = (props) => {
 
@@ -10,7 +11,7 @@ export const DrinkImageCard = (props) => {
       <div className="card">
         <Link to={drink_url}>
           <span>
-            <img className="responsive-img" src={props.drink.img_url} alt={props.drink.name}/>
+            <Image src={props.drink.img_url} alt={props.drink.name} fluid/>
           </span>
         </Link>
       </div>
@@ -19,3 +20,4 @@ export const DrinkImageCard = (props) => {
   )
 
 }
+

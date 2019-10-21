@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { navbar } from '../actions/site'
+import { Image} from 'react-bootstrap'
 
 
 
@@ -25,7 +26,7 @@ class Landing extends React.Component {
           <br /><br />
           <Link to="/signup">
             <span>
-              <h1>Logo Will go here</h1><br></br>
+            <Image src="/Users/flatriron/Desktop/Shak-r App/client/src/logo.svg" />
               <h5>Sign Up</h5>
             </span>
           </Link>

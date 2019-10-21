@@ -20,6 +20,7 @@
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "^3.2.0",
     "react-selectize": "^3.0.1",
+    "react-selectize-bootstrap": "^3.0.5",
     "react-transition-group": "^1.1.2",
     "redux": "^3.7.2",
     "redux-devtools-extension": "^2.13.2",

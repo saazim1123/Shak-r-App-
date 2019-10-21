@@ -12,6 +12,7 @@ class DrinkLikes extends Component {
               {
                 this.props.drinks && this.props.drinks.map((obj)=>{
                   return <h4>{obj.name}</h4>
+                  
                 })
               }
              </div>

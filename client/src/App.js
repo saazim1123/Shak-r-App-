@@ -11,13 +11,12 @@ import DrinksIndex from './containers/DrinksIndex'
 import Landing from './containers/Landing'
 import Login from './containers/Login'
 import SignUp from './containers/SignUp'
-import DrinkLikes from './components/DrinkLikes'
-// import 'bootstrap/dist/css/bootstrap.min.css';
+
 import { Navigationbar } from './components/Navbar'
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import getProfileFetch from './actions/loggedin';
 import {logoutUser} from './actions/logout'
-
 
 class App extends Component {
 
@@ -50,7 +49,6 @@ handleClick = event => {
               <Route exact path="/drinks" component={DrinksIndex} />
               <Route exact path="/drinks/random" component={DrinkRandom} />
               <Route exact path='/drinks/:id' component={DrinkShow} />
-              <Route exact path='/drinks-likes' component={DrinkLikes} />
             </Switch>  
              
             </div>
