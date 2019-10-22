@@ -1,7 +1,7 @@
 import React, {Fragment} from 'react';
 import { DrinkTextCard } from '../components/DrinkTextCard'
 import { DrinkImageCard } from '../components/DrinkImageCard'
-
+import _ from 'lodash';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -16,26 +16,26 @@ class DrinkCardGrid extends React.Component {
   }
   
   render(){
-    var drinkTextCards = [];
-    if (this.props.drinks) {
-      drinkTextCards = this.props.drinks.sort(this.sortByName).map((drink, i) => {
-        if (this.props.site.myBar) {
-          return <DrinkImageCard key={i} drink={drink} />
-        } else {
-          return <DrinkTextCard key={i} drink={drink} />
-        }
-        
-      })
-    }
+
     return (
-      <div className="col s12">
+      <div className="container">
         {
-          this.props.drinks &&
-          <Fragment>
-            {drinkTextCards}
-          </Fragment>
-          ||
-          <h4>No Drinks Found. Please search by Ingredients</h4>
+          (this.props.drinks.length > 0) &&
+            _.chunk(this.props.drinks.sort(this.sortByName), [3]).map((drinksRow, i)=>{
+              return <div className="row" key={i}>
+                  {
+                    drinksRow.map((drink, j)=>{
+                      return <div className="col-12 col-sm-4" key={j}>
+                        {
+                          !!this.props.site.myBar &&
+                          <DrinkImageCard drink={drink} /> ||
+                          <DrinkTextCard drink={drink} />
+                        }
+                      </div>
+                    })
+                  }
+                </div>
+            })
         }
       </div>
     )
@@ -56,3 +56,5 @@ const mapDispatchToProps = (dispatch) => {
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(DrinkCardGrid)
+
+//<h4>No Drinks Found. Please search by Ingredients</h4>

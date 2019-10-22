@@ -14,41 +14,18 @@ class RecipesController < ApplicationController
   #   end
   # end
 
-  # def index NO 2
-  #   query = params[:query];
-  #   # expected query to be csv
-  #   if query
-      
-  #     query_array = query.split(",").map(&:downcase)
-  #     item_ids = Item.where( "lower(name) IN (?)", query_array ).select('id')
-  #     ingredients = Ingredient.where({item_id: item_ids})
-  #     ingredient_map = ingredients.group_by { |obj| obj.recipe_id }
-  #     recipe_ids = [];
-  #     ingredient_map.each do |ingreObj| 
-  #       # byebug
-  #       if (ingreObj[1].length == query_array.length)
-  #         recipe_ids << (ingreObj[0])
-  #       end
-  #     end
-  #     @recipes = Recipe.where({id: recipe_ids})
-  #     render json: @recipes
-  #   else
-  #     @recipes = Recipe.all
-  #     render json: @recipes
-  #   end
-  # end
-
   def index
-    item_ids_string = params[:query];
+    query = params[:query];
     # expected query to be csv
-    if item_ids_string
-      item_ids = item_ids_string.split(",").map(&:downcase)
+    if query
+      query_array = query.split(",")
+      item_ids = Item.where( "id IN (?)", query_array ).select('id')
       ingredients = Ingredient.where({item_id: item_ids})
       ingredient_map = ingredients.group_by { |obj| obj.recipe_id }
       recipe_ids = [];
-      ingredient_map.each do |ingreObj|  
-        if (ingreObj[1].map(&:item_id).uniq.length === item_ids.length)
-          recipe_ids << ingreObj[0]
+      ingredient_map.each do |ingreObj| 
+        if (ingreObj[1].length == query_array.length)
+          recipe_ids.push(ingreObj[0])
         end
       end
       @recipes = Recipe.where({id: recipe_ids})
@@ -57,12 +34,8 @@ class RecipesController < ApplicationController
       @recipes = Recipe.all
       render json: @recipes
     end
-end
-
-# getting me a list of recipes which has speicific ingredients
+  end
   
-  
-
   def show
     @recipe = Recipe.find(params[:id])
     render json: @recipe

@@ -1,11 +1,11 @@
-import React from 'react';
+import React, {Fragment} from 'react';
 import DrinkCardGrid from '../containers/DrinkCardGrid'
 import MyBarEssentials from '../containers/MyBarEssentials'
 
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
-import { loadMyBar } from '../actions/drinks'
+import { loadMyBar, loadDrinks } from '../actions/drinks'
 import { viewMyBar } from '../actions/site'
 
 
@@ -16,6 +16,7 @@ class MyBar extends React.Component {
     this.state = {
       drinks_request_made: false
     }
+    this.loadDrinks = this.loadDrinks.bind(this);
   }
 
   componentWillMount() {
@@ -26,39 +27,47 @@ class MyBar extends React.Component {
     this.props.viewMyBar(false)
   }
 
-  // LoadMyBar(barEssentials, missingEssentials) {
-    
-  // }
+  loadDrinks(items) {
+    this.props.loadDrinks(items, ()=>{
+      this.setState({
+        drinks_request_made: true
+      })
+    })
+  }
 
   render() {
     // let barEssentialsArray = []
+    console.log(this.props.drinks)
     var noDrinksFound = false;
     if (this.props.drinks && this.props.drinks.length === 0){
         noDrinksFound = true;
     } else if(!this.props.drinks) {
       noDrinksFound = true;
     }
-    console.log("noDrinksFound", noDrinksFound);
-    console.log("drinks_request_made", this.state.drinks_request_made)
     return (
-      <div className="row">
-        <div className="center-align col s2">
-          <MyBarEssentials toggle_drinks_request_made={()=>this.setState({
-            drinks_request_made: true
-          })}/>
+      <Fragment>
+        <div className="row">
+          <div className="center-align col-12">
+            <MyBarEssentials loadDrinks={this.loadDrinks} resetRequestMade={()=>this.setState({
+              drinks_request_made: false
+            })}/>
+          </div>
         </div>
-        <div className="center-align col s8">
-          <br/>          
-          {this.props.drinks !== [] ? <DrinkCardGrid drinks={this.props.drinks} /> : null}
-
+        <div className="row">
+          {
+            !noDrinksFound && 
+            <DrinkCardGrid drinks={this.props.drinks} />
+            ||
+              <div className='col-12 text-center'>
+                {
+                  this.state.drinks_request_made &&  <h4 style={{'color': 'gray','fontStyle': 'italic', 'width': '2em'}}> <br></br>Please refine your search</h4> || <h4 style={{'color': 'gray','fontStyle': 'italic'}}>Welcome to Shakr. <br></br><br></br>
+                  Please use the search bar to select which ingredients you would like to make cocktails with.
+                  </h4>
+                }
+              </div>
+          }
         </div>
-        {
-            (noDrinksFound && this.state.drinks_request_made) &&
-            <div>
-                <h4 style={{float: 'left'}}> Please refine your search</h4>
-            </div>
-        }
-      </div>
+      </Fragment>
     )
   }
 }
@@ -72,6 +81,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     loadMyBar: loadMyBar,
+    loadDrinks: loadDrinks,
     viewMyBar: viewMyBar
   }, dispatch);
 };

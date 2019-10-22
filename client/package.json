@@ -7,6 +7,7 @@
     "bootstrap": "^4.3.1",
     "history": "^4.7.2",
     "jquery": "^3.4.1",
+    "lodash": "^4.17.15",
     "mdbootstrap": "^4.8.10",
     "mdbreact": "^4.21.1",
     "prop-types": "^15.7.2",

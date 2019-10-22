@@ -27,35 +27,7 @@ export function loadDrink(id) {
   };
 }
 
-
-export function toggleLikeDrink(recipe_id) {
-  return (dispatch) => {
-    const token = localStorage.getItem('token');
-    return fetch(`http://localhost:3001/api/v1/toggle-like/${recipe_id}`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `bearer ${token}`
-      },
-      accept: 'application/json',
-    }).then(response => response.json())
-      .then(()=>{});
-  };
-}
-
-export function getLikedDrinks() {
-  return (dispatch) => {
-    const token = localStorage.getItem('token');
-    return fetch(`http://localhost:3001/api/v1/likes`, {
-      headers: {
-        'Authorization': `bearer ${token}`
-      },
-      accept: 'application/json',
-    }).then(response => response.json())
-      .then(drinks => dispatch({ type: 'LOAD_LIKED_DRINKS', payload: drinks }));
-  };
-}
-
-export function loadDrinks(query) {
+export function loadDrinks(query, cb) {
   return (dispatch, store) => {
     const token = localStorage.getItem('token');
     dispatch({ type: 'START_LOADING_DRINK' });
@@ -69,7 +41,10 @@ export function loadDrinks(query) {
       },
       accept: 'application/json',
     }).then(response => response.json())
-      .then(drinks => dispatch({ type: 'LOAD_ALL_DRINKS', payload: drinks }));
+      .then(drinks => {
+        dispatch({ type: 'LOAD_ALL_DRINKS', payload: drinks });
+        cb()
+      });
   };
 }
 
@@ -149,3 +124,32 @@ export function unloadDrinks() {
 export function searchTerm(searchTerm) {
   return {type: 'SEARCH_TERM', payload: searchTerm}
 }
+
+export function toggleLikeDrink(recipe_id) {
+    return (dispatch) => {
+      const token = localStorage.getItem('token');
+      return fetch(`http://localhost:3001/api/v1/toggle-like/${recipe_id}`, {
+        method: 'POST',
+        headers: {
+          'Authorization': `bearer ${token}`
+        },
+        accept: 'application/json',
+      }).then(response => response.json())
+        .then(()=>{});
+    };
+  }
+  
+  export function getLikedDrinks() {
+    return (dispatch) => {
+      const token = localStorage.getItem('token');
+      return fetch(`http://localhost:3001/api/v1/likes`, {
+        headers: {
+          'Authorization': `bearer ${token}`
+        },
+        accept: 'application/json',
+      }).then(response => response.json())
+        .then(drinks => dispatch({ type: 'LOAD_LIKED_DRINKS', payload: drinks }));
+    };
+  }
+  
+  

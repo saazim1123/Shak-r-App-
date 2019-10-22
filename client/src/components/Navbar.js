@@ -15,7 +15,7 @@ export const Navigationbar = () => {
           <Nav.Link href="/drinks/random">Random Cocktails</Nav.Link>
         </Nav>
         <Nav>
-          <Nav.Link style={{color: 'black'}} href="/drinks">Liked Cocktails</Nav.Link>
+          <Nav.Link style={{color: 'black'}} href="/drinks-likes">Liked Cocktails</Nav.Link>
           <Button onClick={()=>{localStorage.clear(); window.location.href="/";}}>Logout</Button>
         </Nav>
       </Navbar.Collapse>
