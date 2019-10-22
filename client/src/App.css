@@ -2,6 +2,18 @@ html,body {
   font-family: 'Open Sans', sans-serif!important;
 }
 
+.landing-header {
+  margin-left: auto;
+  margin-right: auto;
+  width: 8em;
+}
+
+.slogan {
+  margin-top: 3em;
+  display: block;
+  
+}
+
 .App {
   text-align: center;
 }

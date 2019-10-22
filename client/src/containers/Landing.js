@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { navbar } from '../actions/site'
-import { Image} from 'react-bootstrap'
+
 
 
 
@@ -21,12 +21,13 @@ class Landing extends React.Component {
       <div>
         <div className="center-align">
           <br /><br />
-          <h1><strong>Shak-r</strong></h1>
-          <h5>App Slogan</h5>
+          <div className="landing-header">
+          <h1 ><strong>Shak-r</strong></h1>
+          <h5 className="slogan">Cocktail App, Make cocktails in your own home</h5>
           <br /><br />
           <Link to="/signup">
             <span>
-            <Image src="/Users/flatriron/Desktop/Shak-r App/client/src/logo.svg" />
+            
               <h5>Sign Up</h5>
             </span>
           </Link>
@@ -36,6 +37,7 @@ class Landing extends React.Component {
             </span>
           </Link>
         </div>
+          </div>
       </div>
     )
   }

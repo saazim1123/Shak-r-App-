@@ -43,7 +43,9 @@ export function loadDrinks(query, cb) {
     }).then(response => response.json())
       .then(drinks => {
         dispatch({ type: 'LOAD_ALL_DRINKS', payload: drinks });
-        cb()
+        if (cb){
+          cb()
+        }
       });
   };
 }
@@ -151,5 +153,3 @@ export function toggleLikeDrink(recipe_id) {
         .then(drinks => dispatch({ type: 'LOAD_LIKED_DRINKS', payload: drinks }));
     };
   }
-  
-  

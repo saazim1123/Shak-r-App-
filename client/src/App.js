@@ -11,6 +11,7 @@ import DrinksIndex from './containers/DrinksIndex'
 import Landing from './containers/Landing'
 import Login from './containers/Login'
 import SignUp from './containers/SignUp'
+import DrinksLikes from './components/DrinkLikes'
 
 import { Navigationbar } from './components/Navbar'
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -49,6 +50,7 @@ handleClick = event => {
               <Route exact path="/drinks" component={DrinksIndex} />
               <Route exact path="/drinks/random" component={DrinkRandom} />
               <Route exact path='/drinks/:id' component={DrinkShow} />
+              <Route exact path='/drinks-likes' component={DrinksLikes} />
             </Switch>  
              
             </div>
