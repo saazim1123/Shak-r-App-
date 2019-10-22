@@ -7,6 +7,9 @@ import { navbar } from '../actions/site'
 
 
 
+
+
+
 class Landing extends React.Component {
   componentWillMount() {
     this.props.navbar(false)
@@ -19,12 +22,17 @@ class Landing extends React.Component {
   render(){
     return (
       <div>
-        <div className="center-align">
+        <div>
           <br /><br />
           <div className="landing-header">
-          <h1 ><strong>Shak-r</strong></h1>
-          <h5 className="slogan">Cocktail App, Make cocktails in your own home</h5>
+          <h1 ><strong>Shakr</strong></h1>
+          </div>
+          <div className="cocktail-image">
+         
+          </div>
+          <h5 className="slogan">Need to know which bourbon makes the perfect Manhattan? Interested in making your cocktail bar favorite at home?</h5>
           <br /><br />
+          <h6 className="description"> Shakr is your definitive resource – everything you need to know about craft spirits and cocktails in one beautiful app.</h6>
           <Link to="/signup">
             <span>
             
@@ -36,7 +44,7 @@ class Landing extends React.Component {
               <h5>Login</h5>
             </span>
           </Link>
-        </div>
+        
           </div>
       </div>
     )
