@@ -36,10 +36,11 @@ handleClick = event => {
 
 
   render() {
+    const isAuth = !!localStorage.getItem("token");
     return (
       <Router>
         <div>
-          {this.props.site.navbar ? <Navigationbar /> : null}
+          {this.props.site.navbar ? <Navigationbar isAuth={isAuth}/> : null}
           <div className={this.props.site.myBar ? "" : "container"}>
             <div className="col s-12">
             <Switch>

@@ -21,9 +21,18 @@ class Signup extends Component {
         this.props.userPostFetch(this.state,this.props.history)
         
     }
+
+    componentDidMount() {
+        document.querySelector('body').style.background = 'whitesmoke';
+    }
     
-
-
+    componentWillMount() {
+        const isAuth = !!localStorage.getItem('token');
+          if (isAuth) {
+            this.props.history.replace('/mybar')
+          }
+    }
+    
     render(){
         return(
         <form onSubmit={this.handleSubmit}>

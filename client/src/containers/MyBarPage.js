@@ -20,6 +20,11 @@ class MyBar extends React.Component {
   }
 
   componentWillMount() {
+    const isAuth = !!localStorage.getItem('token');
+    if (!isAuth) {
+      this.props.history.replace('/')
+    }
+    document.querySelector('body').style.background = 'whitesmoke';
     this.props.viewMyBar(true)
   }
 

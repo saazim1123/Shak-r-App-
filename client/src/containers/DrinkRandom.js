@@ -12,6 +12,13 @@ class DrinkRandom extends React.Component {
     this.props.loadRandomDrink()
   }
 
+  componentWillMount() {
+    const isAuth = !!localStorage.getItem('token');
+    if (!isAuth) {
+      this.props.history.replace('/')
+    }
+  }
+
   componentWillUnmount() {
     this.props.unloadDrink()
   }

@@ -7,6 +7,14 @@ import { loadDrink } from '../actions/drinks'
 import { unloadDrink } from '../actions/drinks'
 
 class DrinkShow extends React.Component {
+
+  componentWillMount() {
+    const isAuth = !!localStorage.getItem('token');
+    if (!isAuth) {
+      this.props.history.replace('/')
+    }
+    document.querySelector('body').style.background = 'whitesmoke';
+  }
  
   componentDidMount(){
     this.props.loadDrink(this.props.match.params.id)

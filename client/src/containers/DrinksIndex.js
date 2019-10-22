@@ -12,6 +12,11 @@ class DrinksIndex extends React.Component {
 
 
   componentDidMount(){
+    const isAuth = !!localStorage.getItem('token');
+    if (!isAuth) {
+      this.props.history.replace('/')
+    }
+    document.querySelector('body').style.background = 'whitesmoke';
     this.props.loadDrinks()
   }
 

@@ -4,7 +4,12 @@ import { getLikedDrinks } from '../actions/drinks'
 
 class DrinkLikes extends Component {
     componentDidMount(){
-        this.props.getLikedDrinks()
+      const isAuth = !!localStorage.getItem('token');
+      if (!isAuth) {
+        this.props.history.replace('/')
+      }
+      document.querySelector('body').style.background = 'whitesmoke';
+      this.props.getLikedDrinks()
     }
 
     render() {

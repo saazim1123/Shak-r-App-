@@ -15,9 +15,20 @@ class Login extends Component {
         });
     }
 
+    componentWillMount() {
+      const isAuth = !!localStorage.getItem('token');
+      if (isAuth) {
+        this.props.history.replace('/mybar')
+      }
+    }
+
     handleSubmit = event => {
         event.preventDefault()
         this.props.userLoginFetch(this.state,this.props.history)
+    }
+
+    componentDidMount() {
+      document.querySelector('body').style.background = 'whitesmoke';
     }
 
     render(){
