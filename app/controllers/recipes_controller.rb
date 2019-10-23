@@ -38,6 +38,13 @@ class RecipesController < ApplicationController
   
   def show
     @recipe = Recipe.find(params[:id])
-    render json: @recipe
+    user_like_obj = UserDrink.where({
+      recipe_id: @recipe.id,
+      user_id: current_user.id
+    })
+    render json: {
+      drink: RecipeSerializer.new(@recipe),
+      user_liked: user_like_obj.exists?
+    }
   end
 end

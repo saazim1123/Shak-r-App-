@@ -24,10 +24,14 @@ class DrinkShow extends React.Component {
     this.props.unloadDrink()
   }
 
+  reloadDrink() {
+    this.props.loadDrink(this.props.match.params.id)
+  }
+
   render() {
     return (
       <div>
-        {this.props.drink !== '' ? <Drink drink={this.props.drink} /> : null}
+        {this.props.drink !== '' ? <Drink reloadDrink={()=>this.reloadDrink()} drink={this.props.drink} /> : null}
       </div>
     )
   }

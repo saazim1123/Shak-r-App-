@@ -132,7 +132,7 @@ export function searchTerm(searchTerm) {
   return {type: 'SEARCH_TERM', payload: searchTerm}
 }
 
-export function toggleLikeDrink(recipe_id) {
+export function toggleLikeDrink(recipe_id, cb) {
     return (dispatch) => {
       const token = localStorage.getItem('token');
       return fetch(`http://localhost:3001/api/v1/toggle-like/${recipe_id}`, {
@@ -142,7 +142,11 @@ export function toggleLikeDrink(recipe_id) {
         },
         accept: 'application/json',
       }).then(response => response.json())
-        .then(()=>{});
+        .then(()=>{
+          if(cb){
+            cb()
+          }
+        });
     };
   }
   

@@ -64,6 +64,7 @@ class DrinksIndex extends React.Component {
   }
   
   render() {
+    console.log(this.state)
     return (
       <div className="row">
         <div className="center-align col-12" style={{height: "60vh", overflow: "hidden"}}>
@@ -84,7 +85,9 @@ class DrinksIndex extends React.Component {
                         } </p>
                         </div>
                         <div>
-                          <DrinkCardGrid drinks={obj.data} hideGlasstile drinkClass="col-sm-2"/>
+                          
+                            <DrinkCardGrid drinks={obj.data} hideGlasstile drinkClass="col-sm-2"/>
+                          
                         </div>
                       </div>
                      )

@@ -18,6 +18,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import getProfileFetch from './actions/loggedin';
 import {logoutUser} from './actions/logout'
+import "./fontawesome/css/all.min.css"
 
 class App extends Component {
 
