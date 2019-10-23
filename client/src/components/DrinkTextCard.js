@@ -15,7 +15,10 @@ export const DrinkTextCard = (props) => {
               </Row>
             </Container>
             <p><strong>{props.drink.name}</strong></p>
-            <p>({props.drink.category})</p>
+            {
+              !props.hideGlasstile && <p>({props.drink.category})</p>
+            }
+            
           </div>
         </div>
       </div>

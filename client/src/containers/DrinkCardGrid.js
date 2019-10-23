@@ -16,20 +16,24 @@ class DrinkCardGrid extends React.Component {
   }
   
   render(){
+    var drinksChunks =  _.chunk(this.props.drinks.sort(this.sortByName), [3]);
+    if (this.props.drinkClass && this.props.drinkClass=='col-sm-2') {
+      drinksChunks = _.chunk(this.props.drinks.sort(this.sortByName), [6])
+    }
 
     return (
       <div className="container">
         {
           (this.props.drinks.length > 0) &&
-            _.chunk(this.props.drinks.sort(this.sortByName), [3]).map((drinksRow, i)=>{
+            drinksChunks.map((drinksRow, i)=>{
               return <div className="row" key={i}>
                   {
                     drinksRow.map((drink, j)=>{
-                      return <div className="col-12 col-sm-4" key={j}>
+                      return <div className={`col-12 ${this.props.drinkClass || "col-sm-4"}`} key={j}>
                         {
                           !!this.props.site.myBar &&
                           <DrinkImageCard drink={drink} /> ||
-                          <DrinkTextCard drink={drink} />
+                          <DrinkTextCard drink={drink}  hideGlasstile={!!this.props.hideGlasstile}/>
                         }
                       </div>
                     })
@@ -44,7 +48,7 @@ class DrinkCardGrid extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    
+    drinks: state.drinks.drinks,
     site: state.site
   }
 }

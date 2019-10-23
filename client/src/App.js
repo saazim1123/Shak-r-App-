@@ -41,21 +41,18 @@ handleClick = event => {
       <Router>
         <div>
           {this.props.site.navbar ? <Navigationbar isAuth={isAuth}/> : null}
-          <div className={this.props.site.myBar ? "" : "container"}>
-            <div className="col s-12">
-            <Switch>
-              <Route exact path ="/" component={Landing} />
-              <Route exact path ="/login" component={Login} />
-              <Route exact path ="/signup" component={SignUp} />
-              <Route exact path ='/mybar' component={MyBarPage} />
-              <Route exact path="/drinks" component={DrinksIndex} />
-              <Route exact path="/drinks/random" component={DrinkRandom} />
-              <Route exact path='/drinks/:id' component={DrinkShow} />
-              <Route exact path='/drinks-likes' component={DrinksLikes} />
-            </Switch>  
-             
+          <div className={this.props.site.myBar ? "" : "container-fluid"}>
+              <Switch>
+                <Route exact path ="/" component={Landing} />
+                <Route exact path ="/login" component={Login} />
+                <Route exact path ="/signup" component={SignUp} />
+                <Route exact path ='/mybar' component={MyBarPage} />
+                <Route exact path="/drinks" component={DrinksIndex} />
+                <Route exact path="/drinks/random" component={DrinkRandom} />
+                <Route exact path='/drinks/:id' component={DrinkShow} />
+                <Route exact path='/drinks-likes' component={DrinksLikes} />
+              </Switch>  
             </div>
-          </div>
         </div>
       </Router>
     );
