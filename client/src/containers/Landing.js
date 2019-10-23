@@ -20,10 +20,10 @@ class Landing extends React.Component {
   }
 
   componentDidMount() {
-    document.querySelector('body').style.background = 'url('+LandingDrinkImage+') no-repeat';
+    //document.querySelector('body').style.background = 'url('+LandingDrinkImage+') no-repeat';
     // document.querySelector('body').style.background.filter = 'url('+LandingDrinkImage+') blur(1px)';
-    document.querySelector('body').style.backgroundSize = 'cover';
-    document.querySelector('body').style.minHeight = '100vh';
+    //document.querySelector('body').style.backgroundSize = 'cover';
+    //document.querySelector('body').style.minHeight = '100vh';
   }
 
   render(){
@@ -31,6 +31,7 @@ class Landing extends React.Component {
       <div>
         <div>
           <br />
+          <img src={LandingDrinkImage} style={{position: 'fixed', left: 0, right: 0, top: 0, bottom: 0, opacity: 0.8}}/>
           <div className="row" style={{top: '7rem', position: 'relative'}}>
             <div className="col-12 col-md-6" style={{color: '#fff'}}>
               <img src={ShakrLogo}/>

@@ -44,7 +44,7 @@ class DrinkCardGrid extends React.Component {
 
 const mapStateToProps = (state) => {
   return {
-    drinks: state.drinks.drinks,
+    
     site: state.site
   }
 }

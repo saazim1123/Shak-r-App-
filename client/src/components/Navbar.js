@@ -7,7 +7,7 @@ export const Navigationbar = ({ isAuth }) => {
 
   return (
     <Navbar bg="light" expand="lg">
-      <Navbar.Brand href="/mybar"><img src={ShakrLogo}/></Navbar.Brand>
+      <Navbar.Brand href="/mybar" style={{height: "100px"}}><img src={ShakrLogo} style={{height: "100%"}}/></Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">
         {

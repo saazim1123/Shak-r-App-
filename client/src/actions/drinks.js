@@ -44,13 +44,13 @@ export function loadDrinks(query, cb) {
       .then(drinks => {
         dispatch({ type: 'LOAD_ALL_DRINKS', payload: drinks });
         if (cb){
-          cb()
+          cb(drinks)
         }
       });
   };
 }
 
-export function getItems() {
+export function getItems(cb) {
   return (dispatch, store) => {
     const token = localStorage.getItem('token');
     let url = 'http://localhost:3001/items';
@@ -60,7 +60,12 @@ export function getItems() {
       },
       accept: 'application/json',
     }).then(response => response.json())
-      .then(items => dispatch({ type: 'LOAD_ALL_ITEMS', payload: items }));
+      .then(items => {
+       dispatch({ type: 'LOAD_ALL_ITEMS', payload: items })
+       if (cb){
+        cb(items)
+       }
+      });
   };
 }
 
