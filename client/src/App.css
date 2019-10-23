@@ -25,6 +25,33 @@ html,body {
   position: relative;
 }
 
+.signup{
+  
+  margin-top:0;
+  margin-right:auto;
+  margin-bottom:0;
+  margin-left:auto;
+}
+.signup-title{
+  text-align: center;
+  font-size: 4vw;
+  margin-top: 15%;
+}
+
+.signup-details{
+  text-align: center;
+  font-size: 1vw;
+  margin-top: 5%;
+}
+
+.username-label,.password-label{
+  padding:0.4%;
+  font-size: 2vw;
+}
+.password-label{
+  margin-bottom: 2%;
+}
+
 .App {
   text-align: center;
 }
