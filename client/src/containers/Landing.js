@@ -5,6 +5,7 @@ import { bindActionCreators } from 'redux';
 import { navbar } from '../actions/site'
 import LandingDrinkImage from '../img/cocktail.jpeg';
 import ShakrLogo from '../img/logo1.png';
+import { ButtonToolbar, Button } from 'react-bootstrap';
 
 class Landing extends React.Component {
   componentWillMount() {
@@ -31,29 +32,36 @@ class Landing extends React.Component {
       <div>
         <div>
           <br />
-          <img src={LandingDrinkImage} style={{position: 'fixed', left: 0, right: 0, top: 0, bottom: 0, opacity: 0.8}}/>
+          <img src={LandingDrinkImage} style={{position: 'fixed', left: 0, right: 0, top: 0, bottom: 0, opacity: 0.9}}/>
           <div className="row" style={{top: '7rem', position: 'relative'}}>
             <div className="col-12 col-md-6" style={{color: '#fff'}}>
-              <img src={ShakrLogo}/>
+              <img src={ShakrLogo} style={{maxWidth: "75%", width:"30rem"}}/>
             </div>
             <div className="col-12 col-md-6" style={{color: '#fff'}}>
               <h5 className="slogan">Need to know which bourbon makes the perfect Manhattan? Interested in making your cocktail bar favorite at home?</h5>
                 <br /><br />
-                <h6 className="description"> Shakr is your definitive resource – everything you need to know about craft spirits and cocktails in one beautiful app.</h6>
-                <Link to="/signup">
-                  <span>
-                    <h5>Sign Up</h5>
-                  </span>
-                </Link>
-                <Link to="/login">
-                  <span>
-                    <h5>Login</h5>
-                  </span>
-                </Link>
+                <h6 className="description"> Shakr is your definitive resource – everything you need to know about craft spirits and cocktails in one beautiful app.</h6><br></br> <br></br>
+                <ButtonToolbar>
+                  <Link to="/signup">
+                    <span style={{marginRight: "16px"}}>
+                    <Button variant="primary">Sign Up</Button>
+                    </span>
+                  </Link>
+                  <Link to="/login" >
+                    <span >
+                    <Button variant="primary">Login</Button>
+                    </span>
+                  </Link>
+                </ButtonToolbar>
             </div>
           </div>
+          
         </div>
+        
       </div>
+      
+      
+      
     )
   }
 }
