@@ -52,6 +52,32 @@ html,body {
   margin-bottom: 2%;
 }
 
+.cocktail-header{
+  margin-left: 24%;
+  margin-top: 24%;
+
+  z-index: 99;
+ 
+  
+  font-size: 7vw;
+  color:#fff;
+  position: absolute;
+  font-family: "mark";
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
+.cocktail-recipe-background{
+  width: 100%;
+}
+
+.title-text-center{
+  padding-bottom:4%;
+}
+
+.description-text-center{
+  padding-bottom: 8%;
+}
+
 .App {
   text-align: center;
 }
@@ -92,4 +118,16 @@ a.drinkImageCard {
 
 .dropdown-menu.default.react-selectize.multi-select.items-dropdown {
   display: block;
+}
+
+.description-div{
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Proxima Nova','Helvetica','Sans-serif' !important;
+  font-weight: 200;
+}
+
+.cocktail-icon{
+  margin-bottom: 2vw;
 }

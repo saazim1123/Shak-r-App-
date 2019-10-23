@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import CocktailImage from '../img/cocktail3.jpg';
+import CocktailImage from '../img/cocktail4.jpg';
 import DrinkCardGrid from '../containers/DrinkCardGrid'
 import { loadDrinks, unloadDrinks, getItems } from '../actions/drinks'
 import TequilaImage from '../img/tequila.png'
@@ -66,21 +66,23 @@ class DrinksIndex extends React.Component {
   render() {
     return (
       <div className="row">
-        <div className="center-align col-12" style={{height: '90vh', position: 'relative', overflow: 'hidden'}}>
+        <div className="center-align col-12" style={{height: "60vh", overflow: "hidden"}}>
           <div style={{position: 'absolute', left: 0, right: 0, top: 0, bottom: 0}}>
-            <img src={CocktailImage} style={{width: '100%',  opacity: 0.8}}/>
+            <img src={CocktailImage} className="cocktail-recipe-background" />
           </div>
-          <h1 style={{position: "absolute", left: "23vw", zIndex: "99", top: "18.3rem", fontWeight: "700", fontSize: "3.6rem", color: "black"}}>Browse Cocktail Recipes</h1>
+          <h1 className="cocktail-header">Cocktail Directory</h1>
         </div>
         <div className="col-12" style={{marginTop: '10vh'}}>
           {
             this.state.drinksInfo.map((obj, id)=>{
               return (<div key={id} style={{margin:"auto", textAlign:"center"}} >
-                        <img src={this.state.drinksSectionInfo[obj.type.toLowerCase()].image} />
-                        <h4 className="text-center mt-4 mb-2">{obj.type}</h4>
-                        <p className="text-center"> {
+                        <img className="cocktail-icon" src={this.state.drinksSectionInfo[obj.type.toLowerCase()].image} />
+                        <div className="description-div"> 
+                        <h4 className="title-text-center mt-4 mb-2">{obj.type}</h4>
+                        <p className="description-text-center" style={{textAlign:"center",whiteSpace:"pre-wrap"}}> {
                           this.state.drinksSectionInfo[obj.type.toLowerCase()].description
                         } </p>
+                        </div>
                         <div>
                           <DrinkCardGrid drinks={obj.data} hideGlasstile drinkClass="col-sm-2"/>
                         </div>
@@ -93,6 +95,8 @@ class DrinksIndex extends React.Component {
     )
   }
 }
+
+// style={{position: "absolute", left: "23vw", zIndex: "99", top: "18.3rem", fontWeight: "700", fontSize: "3.6rem", color: "green"}}
 
 const mapStateToProps = (state) => {
   return {
