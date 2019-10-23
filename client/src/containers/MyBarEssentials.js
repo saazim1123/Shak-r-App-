@@ -83,7 +83,8 @@ class MyBarEssentials extends React.Component {
                 values={this.state.selected_ingredients}
               />   
               <button
-                className="mr-2"
+                style={{margin:"2%"}}
+                className="submit-btn"
                 onClick={()=>{
                   if (this.state.selected_ingredients) {
                     this.props.loadDrinks(this.state.selected_ingredients.map((obj)=> obj.value).join(','))
@@ -91,7 +92,7 @@ class MyBarEssentials extends React.Component {
                 }}>
                 What can I make?
               </button>
-              <button className="btn-flat" onClick={() => {
+              <button className="submit-btn" onClick={() => {
                 this.handleMyBarReset();
                 this.props.resetRequestMade();
               }}><u>Reset My Bar</u></button><br /><br />

@@ -32,7 +32,7 @@ class Landing extends React.Component {
       <div>
         <div>
           <br />
-          <img src={LandingDrinkImage} style={{position: 'fixed', left: 0, right: 0, top: 0, bottom: 0, opacity: 0.9}}/>
+          <img src={LandingDrinkImage} style={{position: 'fixed', left: 0, right: 0, top: 0, bottom: 0, opacity: 0.8}}/>
           <div className="row" style={{top: '7rem', position: 'relative'}}>
             <div className="col-12 col-md-6" style={{color: '#fff'}}>
               <img src={ShakrLogo} style={{maxWidth: "75%", width:"30rem"}}/>
