@@ -33,10 +33,10 @@ class Login extends Component {
 
     render(){
         return(
-            <form onSubmit={this.handleSubmit}>
-        <h1>Login</h1>
-
-        <label>Username</label>
+        <form onSubmit={this.handleSubmit} className="signup">
+        <h1 className="signup-title">Login</h1>
+        <div className="signup-details">
+        <label className="username-label">Username</label>
         <input
           name='username'
           placeholder='Username'
@@ -44,7 +44,7 @@ class Login extends Component {
           onChange={this.handleChange}
           /><br/>
 
-        <label>Password</label>
+        <label className="password-label">Password</label>
         <input
           type='password'
           name='password'
@@ -54,6 +54,7 @@ class Login extends Component {
           /><br/>
 
         <input type='submit'/>
+        </div>
       </form>
         )
     }
