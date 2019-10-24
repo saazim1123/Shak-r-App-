@@ -14,7 +14,7 @@ export const DrinkTextCard = (props) => {
                 <Image src={props.drink.img_url} alt={props.drink.name} fluid roundedCircle />
               </Row>
             </Container>
-            <p><strong>{props.drink.name}</strong></p>
+            <p className="text-center mt-2"><strong>{props.drink.name}</strong></p>
             {
               !props.hideGlasstile && <p>({props.drink.category})</p>
             }

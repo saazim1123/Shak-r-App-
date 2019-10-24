@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import {toggleLikeDrink} from '../actions/drinks'
 
@@ -12,31 +12,36 @@ const Drink = (props) => {
   }) : <li></li>; 
 
   return (
-    <div className="row">
-      <div className="col s12">
-        <h2 className="center-align">{drink.name}</h2><br/>
-        <div className="col s6 center-align" >
-          <img alt={drink.name} src={drink.img_url} height="400" width="400" />
+    <Fragment>
+      <div className="row mb-3">
+        <div className="col-12">
+          <h2 className="text-center">{drink.name}</h2>
         </div>
-        <div className="col s6">
-          <br />
-          <p><strong>Category: </strong>{drink.category} - <em>({drink.glass})</em></p><br />
+      </div>
+      <div className="row">
+        <div className="col-12 col-sm-6">
+          <div className="text-center">
+            <img alt={drink.name} src={drink.img_url} height="400" width="400" />
+            <p><strong>Category: </strong>{drink.category} - <em>({drink.glass})</em></p><br />
+          </div>
+        </div>
+        <div className="col-12 col-sm-6">
           <strong>Ingredients:</strong>
           <ul>{ingredients}</ul><br />
           <strong>Instructions:</strong>
           <p>{drink.instructions}</p>
-        </div>
-        <div onClick={()=>props.toggleLikeDrink(drink.id, ()=>{
-          props.reloadDrink()
-        })} style={{display: 'inline-block', cursor: 'pointer'}}>
-          {
-            props.drink.user_liked &&
-            <i className="fas fa-heart"></i> ||
-            <i className="far fa-heart"></i>
-          }
+          <div onClick={()=>props.toggleLikeDrink(drink.id, ()=>{
+            props.reloadDrink()
+          })} style={{display: 'inline-block', cursor: 'pointer'}}>
+            {
+              props.drink.user_liked &&
+              <i className="fas fa-heart">Click to unlike</i> ||
+              <i className="far fa-heart">Click to like</i>
+            }
+          </div>
         </div>
       </div>
-    </div>
+    </Fragment>
   )
 }
 

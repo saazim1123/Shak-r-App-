@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
 import Drink  from '../components/Drink'
-import { loadRandomDrink } from '../actions/drinks'
-import { unloadDrink } from '../actions/drinks'
+import { loadRandomDrink, loadDrink, unloadDrink} from '../actions/drinks'
 
 class DrinkRandom extends React.Component {
  
@@ -23,15 +22,32 @@ class DrinkRandom extends React.Component {
     this.props.unloadDrink()
   }
 
+  componentDidMount() {
+    this.props.loadRandomDrink()
+  }
+
+  reloadDrink(){
+    this.props.loadDrink(this.props.drink.drink.id)
+  }
+
   render() {
     return (
-      <div className="center-align">
-        <h5>Random Cocktails</h5>
-        <h6>A Nice Description</h6><br/>
-        <button className="waves-effect waves-light btn" onClick={this.handleOnClick}>Random Drink</button>
-        <br /><br />
-        {this.props.drink !== '' ? <Drink drink={this.props.drink} /> : null}
-      </div>
+      <Fragment>
+        <div className="row">
+          <div className='col-12 text-center'>
+            <h5>Random Cocktails</h5>
+            <h6>A Nice Description</h6><br/>
+            <button className="waves-effect waves-light btn" onClick={this.handleOnClick}>Random Drink</button>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col-12">
+            {
+              this.props.drink && <Drink drink={this.props.drink} reloadDrink={()=>{this.reloadDrink()}}/>
+            }
+          </div>
+        </div>
+      </Fragment>
     )
   }
 }
@@ -45,7 +61,8 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return bindActionCreators({
     loadRandomDrink: loadRandomDrink,
-    unloadDrink: unloadDrink
+    unloadDrink: unloadDrink,
+    loadDrink: loadDrink
   }, dispatch);
 };
 

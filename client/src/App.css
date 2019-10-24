@@ -152,3 +152,21 @@ a.drinkImageCard {
   /* height: 4vh; */
   font-size: 1.5rem;
 }
+
+@media(min-width: 992px) {
+  .container-fluid.drinkLikesModification {
+    padding: 0 21vw;
+  }
+
+  .container-fluid.drinkLikesModification .drinkRow {
+    margin-bottom: 2rem;
+  }
+
+  .container-fluid.mybarPage .drinkRow {
+    margin-bottom: 2rem;
+  }
+
+  .container-fluid.mybarPage .drinkRow .col-sm-4 {
+    /*border: 1px solid;*/
+  }
+}

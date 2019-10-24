@@ -61,7 +61,7 @@ class MyBar extends React.Component {
         <div className="row">
           {
             !noDrinksFound && 
-            <DrinkCardGrid drinks={this.props.drinks} />
+            <DrinkCardGrid drinks={this.props.drinks} additionalClasses={['mybarPage']}/>
             ||
               <div className='col-12 text-center'>
                 {

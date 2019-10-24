@@ -20,13 +20,14 @@ class DrinkCardGrid extends React.Component {
     if (this.props.drinkClass && this.props.drinkClass=='col-sm-2') {
       drinksChunks = _.chunk(this.props.drinks.sort(this.sortByName), [6])
     }
+    const additionalClasses = this.props.additionalClasses || [];
 
     return (
-      <div className="container">
+      <div className={`container-fluid ${additionalClasses.join(' ')}`}>
         {
           (this.props.drinks.length > 0) &&
             drinksChunks.map((drinksRow, i)=>{
-              return <div className="row" key={i}>
+              return <div className="row drinkRow" key={i}>
                   {
                     drinksRow.map((drink, j)=>{
                       return <div className={`col-12 ${this.props.drinkClass || "col-sm-4"}`} key={j}>

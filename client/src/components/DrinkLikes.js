@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import { getLikedDrinks } from '../actions/drinks' 
+import DrinkCardGrid from '../containers/DrinkCardGrid';
 
 class DrinkLikes extends Component {
     componentDidMount(){
@@ -14,11 +15,9 @@ class DrinkLikes extends Component {
 
     render() {
       return <div>
+                <h3 className="text-center mt-4 mb-5">Liked Collection</h3>
               {
-                this.props.drinks && this.props.drinks.map((obj)=>{
-                  return <h4>{obj.name}</h4>
-                  
-                })
+                this.props.drinks && <DrinkCardGrid drinks={this.props.drinks} hideGlasstile additionalClasses={['drinkLikesModification']}/>
               }
              </div>
     }
