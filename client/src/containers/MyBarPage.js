@@ -66,7 +66,7 @@ class MyBar extends React.Component {
               <div className='col-12 text-center' >
                 {
                   this.state.drinks_request_made &&  <h4 style={{'color': 'gray','fontStyle': 'italic', 'width': '2em'}}> <br></br>Please refine your search</h4> || <h4 style={{'color': 'gray','fontStyle': 'italic'}}>Welcome to Shakr. <br></br><br></br>
-                  Please use the search bar to select which ingredients you would like to make cocktails with.
+                  Please use the search bar to select which ingredients you would like to make cocktails with. <br></br> <br></br> Save cocktails of your choice and most importantly, <br></br><br></br> PLEASE DRINK RESPONSIBLY!!!
                   </h4>
                 }
               </div>

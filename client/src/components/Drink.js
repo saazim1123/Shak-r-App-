@@ -15,17 +15,21 @@ const Drink = (props) => {
     <Fragment>
       <div className="row mb-3">
         <div className="col-12">
-          <h2 className="text-center">{drink.name}</h2>
+          <h2 className="text-center drink-title">{drink.name}</h2>
         </div>
       </div>
       <div className="row">
         <div className="col-12 col-sm-6">
           <div className="text-center">
-            <img alt={drink.name} src={drink.img_url} height="400" width="400" />
-            <p><strong>Category: </strong>{drink.category} - <em>({drink.glass})</em></p><br />
+            <div className="drink-img">
+              <img alt={drink.name} src={drink.img_url} height="400" width="400" />
+            </div>
+            <div className="drink-text">
+              <p><strong>Category: </strong>{drink.category} - <em>({drink.glass})</em></p><br />
+            </div>
           </div>
         </div>
-        <div className="col-12 col-sm-6">
+        <div className="col-12 col-sm-6 drink-text">
           <strong>Ingredients:</strong>
           <ul>{ingredients}</ul><br />
           <strong>Instructions:</strong>

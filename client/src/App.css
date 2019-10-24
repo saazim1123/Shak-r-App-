@@ -204,6 +204,12 @@ a.drinkImageCard {
  
 }
 
+/* Drink Recipe */
+.drink-text{
+  margin-top: 1rem;
+  font-size: 1.2rem;
+}
+
 @media(min-width: 992px) {
   .container-fluid.drinkLikesModification {
     padding: 0 21vw;
