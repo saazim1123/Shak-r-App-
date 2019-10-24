@@ -33,18 +33,23 @@ class DrinkRandom extends React.Component {
   render() {
     return (
       <Fragment>
-        <div className="row">
+        <div className="random-cocktail-div noPadding">
           <div className='col-12 text-center'>
-            <h5>Random Cocktails</h5>
-            <h6>A Nice Description</h6><br/>
-            <button className="waves-effect waves-light btn" onClick={this.handleOnClick}>Random Drink</button>
+            <div>
+              
+                <h5 className="random-cocktail-title">Random Cocktails</h5>
+                <h6 className="random-cocktail-description">Check our random cocktails by clicking the randomize button</h6><br/>
+                
+            </div>
           </div>
         </div>
-        <div className="row">
+        <div className="row-random-drinks">
           <div className="col-12">
             {
               this.props.drink && <Drink drink={this.props.drink} reloadDrink={()=>{this.reloadDrink()}}/>
             }
+
+              <button className="submit-btn random" onClick={this.handleOnClick}>Randomize Another Cocktail</button>
           </div>
         </div>
       </Fragment>

@@ -23,7 +23,7 @@ class DrinkCardGrid extends React.Component {
     const additionalClasses = this.props.additionalClasses || [];
 
     return (
-      <div className={`container-fluid ${additionalClasses.join(' ')}`}>
+      <div className={`container-fluid  ${additionalClasses.join(' ')}`}>
         {
           (this.props.drinks.length > 0) &&
             drinksChunks.map((drinksRow, i)=>{

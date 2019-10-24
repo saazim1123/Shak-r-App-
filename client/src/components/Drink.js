@@ -35,8 +35,8 @@ const Drink = (props) => {
           })} style={{display: 'inline-block', cursor: 'pointer'}}>
             {
               props.drink.user_liked &&
-              <i className="fas fa-heart">Click to unlike</i> ||
-              <i className="far fa-heart">Click to like</i>
+              <i className="fas fa-heart"> Unlike</i> ||
+              <i className="far fa-heart"> Like</i>
             }
           </div>
         </div>

@@ -15,7 +15,7 @@ export const Navigationbar = ({ isAuth }) => {
           <Fragment>
             <Nav className="mr-auto">
               <Nav.Link href="/mybar">My Bar</Nav.Link>
-              <Nav.Link href="/drinks">All Recipes</Nav.Link>
+              <Nav.Link href="/drinks">Cocktail Recipes</Nav.Link>
               <Nav.Link href="/drinks/random">Random Cocktails</Nav.Link>
             </Nav>
             <Nav>

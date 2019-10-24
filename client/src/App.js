@@ -42,7 +42,7 @@ handleClick = event => {
       <Router>
         <div>
           {this.props.site.navbar ? <Navigationbar isAuth={isAuth}/> : null}
-          <div className={this.props.site.myBar ? "" : "container-fluid"}>
+          <div className={this.props.site.myBar }>
               <Switch>
                 <Route exact path ="/" component={Landing} />
                 <Route exact path ="/login" component={Login} />
