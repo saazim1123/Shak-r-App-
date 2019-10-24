@@ -15,10 +15,15 @@ class DrinkLikes extends Component {
 
     render() {
       return <div>
-                <h3 className="text-center mt-4 mb-5">Liked Collection</h3>
-              {
-                this.props.drinks && <DrinkCardGrid drinks={this.props.drinks} hideGlasstile additionalClasses={['drinkLikesModification']}/>
-              }
+                  <div className="liked-drinks-main-div">
+                    <h3 className="liked-drinks-title">Liked Collection</h3>
+                    <h6 className="liked-cocktail-description">Each recipe has been tested and the stories accompanying each drink represents the most accurate—and delightful—history of the cocktail. </h6><br/>
+                  </div>
+                  <div className="liked-drinks-collection">
+                    {
+                      this.props.drinks && <DrinkCardGrid drinks={this.props.drinks} hideGlasstile additionalClasses={['drinkLikesModification']}/>
+                    }
+                  </div>
              </div>
     }
 }

@@ -82,9 +82,9 @@ html,body {
 
 .random-cocktail-title{
   font-size: 7vw;
-  color:#fff;
+  color:antiquewhite;
   position: absolute;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   text-align: center;
   margin-top: 12%;
@@ -145,7 +145,10 @@ a.drinkImageCard:hover, a.drinkImageCard:focus {
   color: green;
 }
 
+
+
 a.drinkImageCard {
+  
   color: green;
 }
 
@@ -186,6 +189,21 @@ a.drinkImageCard {
   font-size: 1.5rem;
 }
 
+/* Card Styling */
+.card1{
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6);
+  transition: 0.3s;
+  border-radius: 5px;
+  border-color: aliceblue;
+  border-style: double;
+  border-top-left-radius: 50px;
+} 
+
+.card1:hover{
+  box-shadow: 0 4px 8px 0 rgba(56, 0, 0, 0.562);
+ 
+}
+
 @media(min-width: 992px) {
   .container-fluid.drinkLikesModification {
     padding: 0 21vw;
@@ -223,6 +241,43 @@ a.drinkImageCard {
     background-repeat: no-repeat;
     background-size: cover;
     
+  }
+
+  .liked-drinks-main-div{
+    width: 100%;
+    height: 60vh;
+    background-image: url('./img/cocktail10.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  .liked-drinks-title{
+    font-size: 7vw;
+    color: antiquewhite;
+    position: absolute;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    text-align: center;
+    margin-top: 12%;
+    margin-left: 25%;
+  }
+
+  .liked-cocktail-description{
+    
+    padding-top: 24%;
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 2vw;
+    text-align: center;
+    text-emphasis: high;
+    text-decoration-style: double;
+    font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+    text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+    color: antiquewhite;
+  }
+
+  .liked-drinks-collection{
+    margin-top: 4rem;
   }
 
   
